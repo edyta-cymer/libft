@@ -11,3 +11,4 @@ main
 *.swo
 *.swn
 *.swm
+.o
