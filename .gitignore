@@ -1,0 +1,13 @@
+# replit files
+.replit
+*.blob
+replit.nix
+main.c
+.ccls-cache
+main
+
+# temporary c file
+*.swp
+*.swo
+*.swn
+*.swm
