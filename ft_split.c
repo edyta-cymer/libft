@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
 
 static int	count_words(char const *s, char c)
 {
@@ -92,7 +91,7 @@ char	**ft_split(char const *s, char c)
 	}
 	return (array);
 }
-
+/*
 int	main(void)
 {
 	char const *s = "This is a test string for splitting";
@@ -116,3 +115,4 @@ int	main(void)
 
 	return (0);
 }
+*/

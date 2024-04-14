@@ -17,10 +17,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	unsigned long	i;
 	int				j;
 
-	j = 0;
-	i = 0;
 	if (!*needle)
 		return ((char *)haystack);
+	if (len == 0)
+		return (NULL);
+	j = 0;
+	i = 0;
 	while (haystack[i])
 	{
 		j = 0;
