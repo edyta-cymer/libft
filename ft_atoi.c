@@ -11,52 +11,44 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	ft_isspace(char c)
 {
-	int		i;
-	int		result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-	while ((str[i] == ' ') || ((str[i] >= 9) && (str[i] <= 13)))
-		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
-	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		i++;
-	}
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	if (c == ' ' || c == '\f' || c == '\n'
+		|| c == '\r' || c == '\t' || c == '\v')
+		return (1);
+	return (0);
 }
 
-long	ft_atol(const char *str)
+static int	ft_isnum(char c)
 {
-	long		i;
-	long		result;
-	int			sign;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-	result = 0;
+int	ft_atoi(const char *str)
+{
+	int	num;
+	int	sign;
+	int	i;
+
+	num = 0;
 	sign = 1;
 	i = 0;
-	while ((str[i] == ' ') || ((str[i] >= 9) && (str[i] <= 13)))
+	while (ft_isspace(str[i]) && str[i] != '\0')
 		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sign = sign * -1;
+		sign *= -1;
 		i++;
 	}
-	while ((str[i] >= '0') && (str[i] <= '9'))
+	else if (str[i] == '+')
+		i++;
+	while (ft_isnum(str[i]) && str[i] != '\0')
 	{
-		result = result * 10 + (str[i] - '0');
+		num *= 10;
+		num += str[i] - '0';
 		i++;
 	}
-	return (result * sign);
+	return (num * sign);
 }
